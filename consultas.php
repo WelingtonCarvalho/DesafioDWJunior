@@ -12,9 +12,9 @@ if (!isset($template)) {
 <form method="post">
     <div class="container" style="width:450px; margin:auto">
         <div class="row">
-            <input class="form-control col-6 mr-1" name="pesquisa" type="search" placeholder="Pesquisar"
+            <input class="form-control col-6 mr-1" name="pesquisa" id="pesquisa"  type="search" placeholder="Pesquisar"
                    aria-label="Pesquisar">
-            <select class="form-control col-3" name="tipopesquisa" id="tipopesquisa">
+            <select class="form-control col-3" onChange="changeTipo(this.selectedIndex);" name="tipopesquisa" id="tipopesquisa">
                 <option value="1">Nome</option>
                 <option value="2">Telefone</option>
                 <option value="3">Email</option>
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado->num_rows > 0) {
             //Pegar dados de cada linha da coluna
             while ($row = $resultado->fetch_assoc()) {
-                echo "<tr> <td>" . $row["nome"] . "</td> <td>" . $row["telefone"] . "</td> <td>" . $row["email"] . "</td> <td>" . $row["cidade"] . "</td> <td> " . $row["uf"] . "</td> <td class='setWidth concat'><div>" . $row["informacoes"] . "</div></td> <td> " . $row["categoria"] . " </td> <td> " . $row["categoria"] . " </td> </tr>";
+                echo "<tr> <td>" . $row["nome"] . "</td> <td>" . $row["telefone"] . "</td> <td>" . $row["email"] . "</td> <td>" . $row["cidade"] . "</td> <td> " . $row["uf"] . "</td> <td class='setWidth concat'><div>" . $row["informacoes"] . "</div></td> <td> " . $row["categoria"] . " </td> <td> " . $row["datahora"] . " </td> </tr>";
             }
         }
     }
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado->num_rows > 0) {
             //Pegar dados de cada linha da coluna
             while ($row = $resultado->fetch_assoc()) {
-                echo "<tr> <td>" . $row["nome"] . "</td> <td>" . $row["telefone"] . "</td> <td>" . $row["email"] . "</td> <td>" . $row["cidade"] . "</td> <td> " . $row["uf"] . "</td> <td class='setWidth concat'><div>" . $row["informacoes"] . "</div></td> <td> " . $row["categoria"] . " </td> <td> " . $row["categoria"] . " </td></tr>";
+                echo "<tr> <td>" . $row["nome"] . "</td> <td>" . $row["telefone"] . "</td> <td>" . $row["email"] . "</td> <td>" . $row["cidade"] . "</td> <td> " . $row["uf"] . "</td> <td class='setWidth concat'><div>" . $row["informacoes"] . "</div></td> <td> " . $row["categoria"] . " </td> <td> " . $row["datahora"] . " </td></tr>";
             }
         }
     }

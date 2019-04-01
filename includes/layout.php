@@ -19,6 +19,14 @@ require_once('Template.php');
     } ?>
 
     <script>
+        function changeTipo(tipo) {
+            if (tipo == "1") {
+                id('pesquisa').onkeyup = function () {
+                    mask(this, formatnumber);
+                }
+            }
+        }
+
         function mask(o, f) {
             x_objeto = o
             x_fun = f
