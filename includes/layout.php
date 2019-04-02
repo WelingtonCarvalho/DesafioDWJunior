@@ -19,18 +19,27 @@ require_once('Template.php');
     } ?>
 
     <script>
+        function mask(o, f) {
+            x_objeto = o
+            x_fun = f
+            setTimeout("execmascara()", 1)
+        }
         function changeTipo(tipo) {
             if (tipo == "1") {
                 id('pesquisa').onkeyup = function () {
                     mask(this, formatnumber);
                 }
             }
-        }
+            if (tipo == "0") {
+                id('pesquisa').onkeyup = function () {
 
-        function mask(o, f) {
-            x_objeto = o
-            x_fun = f
-            setTimeout("execmascara()", 1)
+                }
+            }
+            if (tipo == "2") {
+                id('pesquisa').onkeyup = function () {
+
+                }
+            }
         }
 
         function execmascara() {
